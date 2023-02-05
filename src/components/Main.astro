@@ -1,0 +1,36 @@
+---
+import Container from "./Container.astro";
+---
+
+<main class="border border-green-500">
+	<div class="info h-[900px] grid place-items-center">
+		<Container>
+			<div class="flex text-white justify-between items-center">
+				<div class="info flex flex-col gap-10">
+					<div class="texts">
+						<p class="font-extrabold text-7xl">Hola!<br>Soy Carlos Reyes</p>
+						<p class="mt-4 text-2xl">Desarrollador Web</p>
+					</div>
+					<div class="buttons flex gap-4">
+						<button class="text-lg font-bold border-2 bg-white text-black p-4 rounded-lg hover:opacity-80 transition-all">Descarga mi CV</button>
+						<button class="text-lg font-bold border-2 border-white p-4 rounded-lg">Contactame</button>
+					</div>
+				</div>
+				<div class="img hidden lg:block">
+					<div class="h-[600px] w-[600px] grid place-items-center">
+						<img class="w-full" src="../../public/hero.png" alt="">
+					</div>
+				</div>
+			</div>
+		</Container>
+	</div>
+</main>
+
+<style>
+	main {
+		background-image: url('../../public/pexels-aleksandar-pasaric-1694000.webp');
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+</style>
