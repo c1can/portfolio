@@ -1,0 +1,28 @@
+---
+const menu = [
+  {
+    title: "Contacto",
+  },
+  {
+    title: "About",
+  },
+  {
+    title: "Proyectos",
+  },
+  {
+    title: "Blog",
+  },
+];
+---
+
+<nav class="hidden md:block">
+  <ul class="flex gap-4">
+    {
+      menu.map(({ title }) => (
+        <li class="hover:bg-black hover:text-white p-2 rounded-lg transition-all">
+          <a href="#">{title}</a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
