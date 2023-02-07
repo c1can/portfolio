@@ -1,6 +1,6 @@
 export default function ContactForm() {
   return (
-    <div className="formCard rounded-sm max-w-[500px] bg-white p-5">
+    <div className="formCard rounded-sm max-w-[500px] bg-white py-10 px-5">
       <form action="">
         <div className="inputField gap-2 mb-8">
           <label
@@ -22,7 +22,7 @@ export default function ContactForm() {
             htmlFor="name"
             className="inline-block py-1 px-2 rounded-sm bg-black text-white text-xl font-medium"
           >
-            Correo Electronico
+            Correo Electrónico
           </label>
           <input
             type="text"
@@ -37,7 +37,7 @@ export default function ContactForm() {
             htmlFor="name"
             className="inline-block py-1 px-2 rounded-sm bg-black text-white text-xl font-medium"
           >
-            Sujeto
+            Título
           </label>
           <input
             type="text"
@@ -58,10 +58,17 @@ export default function ContactForm() {
           <textarea
             id="message"
             rows="4"
-            class="block p-2.5 w-full text-lg text-gray-900 bg-gray-50 rounded-sm border-2 border-black"
-            placeholder="Deja un comentario..."
+            class="block p-2.5 w-full text-lg text-gray-900 bg-gray-50 rounded-sm border-2 border-black outline-none"
+            placeholder="Deja tu mensaje..."
           ></textarea>
         </div>
+
+        <button
+          type="submit"
+          class="font-bold px-6 py-2.5 bg-black text-white text-2xl rounded mt-10 w-full cursor-not-allowed"
+        >
+          Enviar
+        </button>
       </form>
     </div>
   );
