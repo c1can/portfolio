@@ -23,6 +23,9 @@ const menu = [
   <button class="md:hidden" id="buttonMenu">
     <img src="https://icongr.am/clarity/bars.svg?size=35&color=000000" alt="hamburgerMenu">
   </button>
+  <button class="hidden md:hidden" id="closeMenu">
+    <img src="https://icongr.am/feather/x.svg?size=35&color=000000" alt="closeMenu">
+  </button>
   <ul class="hidden md:flex">
     {
       menu.map(({ title, path }) => (
@@ -61,9 +64,18 @@ const menu = [
 
 <script>
   const menuButton = document.getElementById('buttonMenu')
+  const closeButton = document.getElementById('closeMenu')
+
   const menu = document.querySelector('.menu')
   menuButton.addEventListener('click', () => {
+    menuButton.classList.toggle('hidden')
+    closeButton.classList.toggle('hidden')
     menu.classList.toggle('hidden')
   })
 
+  closeButton.addEventListener('click', () => {
+    closeButton.classList.toggle('hidden')
+    menu.classList.toggle('hidden')
+    menuButton.classList.toggle('hidden')
+  })
 </script>
