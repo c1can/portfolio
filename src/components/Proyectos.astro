@@ -5,22 +5,27 @@ const proyectos = [
   {
     title: 'MovieApp',
     url: "../../public/proyectos/flags.webp",
+    path: 'https://github.com/escarcan/MovieApp-Frontend'
   },
   {
     title: 'PaisesAPI',
     url: "../../public/proyectos/movies.webp",
+    path: 'https://github.com/escarcan/rest-countries-api-project'
   },
   {
     title: 'Acortador de URL',
     url: "../../public/proyectos/short.webp",
+    path: 'https://github.com/escarcan/URL-Shortening-API-LandingPage'
   },
   {
     title: 'EasyBank LandingPage',
-    url: '../../public/proyectos/landingEasy.webp'
+    url: '../../public/proyectos/landingEasy.webp',
+    path: 'https://github.com/escarcan/Desktop-First-EasyBank-Project'
   }, 
   {
     title: 'TodoList',
-    url: '../../public/proyectos/todoList.webp'
+    url: '../../public/proyectos/todoList.webp',
+    path: 'https://github.com/escarcan/React-Todo-List-Level-Up'
   }
 ];
 ---  
@@ -31,7 +36,7 @@ const proyectos = [
 
       <div class="proyectos flex justify-center gap-10 mt-10 flex-wrap">
         {
-          proyectos.map(({ url, title }) => (
+          proyectos.map(({ url, title, path }) => (
             <div class="flex justify-center">
               <div class="rounded-lg shadow-lg bg-white max-w-sm">
                 <div class="img h-[200px] mb-6">
@@ -52,12 +57,13 @@ const proyectos = [
                     up the bulk of the card's content.
                   </p>
                   <div class="flex gap-4">
-                    <button
-                    type="button"
+                    <a
+                    target="_blank"
+                    href={path}
                     class=" inline-block px-6 py-2.5 bg-black text-white font-medium text-xs leading-tight rounded shadow-md"
                     >
                     GitHub
-                    </button>
+                    </a>
 
                   <div class="github h-9 w-9"></div>
                   </div>
