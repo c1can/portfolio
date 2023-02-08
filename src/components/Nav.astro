@@ -2,27 +2,68 @@
 const menu = [
   {
     title: "About",
+    path: "#About"
   },
   {
     title: "Proyectos",
+    path: '#Proyectos'
   },
   {
     title: "Blog",
+    path: '#'
   },
   {
     title: "Contacto",
+    path: '#Contacto'
   },
 ];
 ---
 
-<nav class="hidden md:block">
-  <ul class="flex gap-4">
+<nav>
+  <button class="md:hidden" id="buttonMenu">
+    <img src="https://icongr.am/clarity/bars.svg?size=35&color=000000" alt="hamburgerMenu">
+  </button>
+  <ul class="hidden md:flex">
     {
-      menu.map(({ title }) => (
-        <li class="hover:bg-black hover:text-white p-2 rounded-lg transition-all">
-          <a href="#">{title}</a>
+      menu.map(({ title, path }) => (
+        <li>
+          <a class="hover:bg-black hover:text-white text-lg p-2 rounded-lg transition-all" href={path}>{title}</a>
         </li>
       ))
     }
   </ul>
+
+  <div class="menu absolute bg-white right-0 top-[73px] py-[60px] px-[90px] hidden md:hidden">
+    <nav>
+      <ul class="flex flex-col gap-5 items-center">
+        {
+          menu.map(({ title, path }) => (
+            <li>
+              <a class="hover:bg-black hover:text-white text-lg p-2 rounded-lg transition-all" href={path}>{title}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <div class="flex justify-between mt-10">
+      <a href="">
+        <img src="https://icongr.am/devicon/linkedin-plain.svg?size=30&color=000000" alt="linkedin">
+      </a>
+      <a target="_blank" href="https://github.com/escarcan">
+        <img src="https://icongr.am/devicon/github-original.svg?size=30&color=000000" alt="github">
+      </a>
+    </div>
+  </div>
+
 </nav>
+
+
+<script>
+  const menuButton = document.getElementById('buttonMenu')
+  const menu = document.querySelector('.menu')
+  menuButton.addEventListener('click', () => {
+    menu.classList.toggle('hidden')
+  })
+
+</script>
