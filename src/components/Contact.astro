@@ -3,10 +3,14 @@ import ContactForm from "./ContactForm";
 import Container from "./Container.astro";
 ---
 
-
 <section class="bg-black py-20">
-    <Container>
-        <h2 class="text-white font-bold text-4xl mb-20 text-center">Interesado en Contatratarme?</h2>
-        <ContactForm />
-    </Container>
+  <Container>
+    <h2 class="text-white font-bold text-4xl mb-20 text-center">
+      Interesado en Contatratarme?
+    </h2>
+    <div class="md:flex md:items-center justify-center md:gap-20">
+      <ContactForm />
+      <div class="card w-[700px] h-[400px] bg-white hidden xl:block"></div>
+    </div>
+  </Container>
 </section>

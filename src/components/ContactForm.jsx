@@ -1,6 +1,6 @@
 export default function ContactForm() {
   return (
-    <div className="formCard rounded-sm max-w-[500px] bg-white py-10 px-5">
+    <div className="formCard rounded-sm max-w-[600px] bg-white py-10 px-5 md:border md:w-[600px]">
       <form action="">
         <div className="inputField gap-2 mb-8">
           <label
