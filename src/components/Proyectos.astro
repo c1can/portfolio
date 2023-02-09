@@ -17,28 +17,28 @@ const proyectos = [
     img_url: "../../public/proyectos/movies.webp",
     github: 'https://github.com/escarcan/rest-countries-api-project',
     description: 'Aplicacion para ver las banderas del mundo e informacion del Pais',
-    to: '/proyectos/paises'
+    to: 'https://carlosreyes84-restcountries.netlify.app/'
   },
   {
     title: 'Acortador de URL',
     img_url: "../../public/proyectos/short.webp",
     github: 'https://github.com/escarcan/URL-Shortening-API-LandingPage',
-    description: 'Aplicacion para acortar tus URLS',
-    to: '/proyectos/acortador'
+    description: 'Aplicacion para acortar tus URLS usando la API de shrtcode',
+    to: 'https://escarcan.github.io/URL-Shortening-API-LandingPage/'
   },
   {
     title: 'EasyBank LandingPage',
     img_url: '../../public/proyectos/landingEasy.webp',
     github: 'https://github.com/escarcan/Desktop-First-EasyBank-Project',
-    description: 'Sitio web estatico',
-    to: '/proyectos/easybank'
+    description: 'Sitio web estatico, ejercicio de la pagina FrontendMentor',
+    to: 'https://escarcan.github.io/Desktop-First-EasyBank-Project/'
   }, 
   {
     title: 'TodoList',
     img_url: '../../public/proyectos/todoList.webp',
     github: 'https://github.com/escarcan/React-Todo-List-Level-Up',
-    description: 'Una simple todoList',
-    to: '/proyectos/todo'
+    description: 'Una simple todoList con registro y login de usuarios',
+    to: 'https://todolist-react-levelup.netlify.app/login'
   }
 ];
 ---  
@@ -51,7 +51,7 @@ const proyectos = [
         {
           proyectos.map(({ img_url, title, github, description, to }) => (
             <div class="flex justify-center">
-              <div class="rounded-lg shadow-lg bg-white max-w-sm">
+              <div class="rounded-lg shadow-xl bg-white max-w-sm">
                 <div class="img h-[200px] mb-6">
                   <a href={to}>
                     <img
@@ -68,16 +68,18 @@ const proyectos = [
                   <p class="text-gray-700 text-base mb-4">
                     {description}
                   </p>
-                  <div class="flex gap-4">
+                  <div class="flex justify-between">
                     <a
                     target="_blank"
-                    href={github}
-                    class=" inline-block px-6 py-2.5 bg-black text-white font-medium text-xs leading-tight rounded shadow-md"
+                    href={to}
+                    class=" inline-block px-6 py-2.5 bg-black text-white font-bold text-md leading-tight rounded shadow-md"
                     >
-                    GitHub
+                    Ver Proyecto
                     </a>
 
-                  <div class="github h-9 w-9"></div>
+                  <a href={github} target="_blank">
+                    <img src="https://icongr.am/devicon/github-original.svg?size=35&color=currentColor" alt="github">
+                  </a>
                   </div>
                   
                 </div>
