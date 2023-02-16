@@ -1,4 +1,5 @@
 ---
+import { ContactCard } from "./ContactCard";
 import ContactForm from "./ContactForm";
 import Container from "./Container.astro";
 ---
@@ -10,7 +11,7 @@ import Container from "./Container.astro";
     </h2>
     <div class="md:flex md:items-center justify-center md:gap-20">
       <ContactForm client:visible />
-      <div class="card w-[700px] h-[400px] bg-white hidden xl:block"></div>
+      <ContactCard client:visible/>
     </div>
   </Container>
 </section>
