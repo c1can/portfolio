@@ -3,9 +3,9 @@ import { toast } from "wc-toast"
 
 export const useContact = () => {
     const data = {
-        service_id: 'service_8jpo8rw',
-        template_id: 'template_f2rmgkv',
-        user_id: 'DkHZ368rBINtItZg6'
+        service_id: import.meta.env.PUBLIC_SERVICE_ID,
+        template_id: import.meta.env.PUBLIC_TEMPLATE_ID,
+        user_id: import.meta.env.PUBLIC_USER_KEY
     }
 
     const [template, setTemplate] = useState({
@@ -46,7 +46,6 @@ export const useContact = () => {
             },
             body: JSON.stringify(data)
         }).then(response => {
-            console.log(template)
             if(!response.ok) return toast.error('Captcha Invalido')
 
             toast.success('Enviado!')
