@@ -1,32 +1,61 @@
-import emailjs from "@emailjs/browser"
-import { toast } from "wc-toast";
+import { useState } from "react"
+import { toast } from "wc-toast"
 
-export const useContact = (form) => {
+export const useContact = () => {
+    const data = {
+        service_id: 'service_8jpo8rw',
+        template_id: 'template_f2rmgkv',
+        user_id: 'DkHZ368rBINtItZg6'
+    }
 
-  const sendEmail = (e) => {
-    e.preventDefault();
+    const [template, setTemplate] = useState({
+        name: '',
+        email: '',
+        subject: '',
+        message: '',
+        "g-recaptcha-response": ''
+    })
 
-    emailjs
-      .sendForm(
-        import.meta.env.PUBLIC_SERVICE_ID,
-        import.meta.env.PUBLIC_TEMPLATE_ID,
-        form.current,
-        import.meta.env.PUBLIC_KEY
-      )
-      .then(
-        (response) => {
-          if (response.text == "OK") {
+    const handleChange = (e) => {
+        setTemplate({
+            ...template,
+            [e.target.name]: e.target.value
+        })
+    }
+
+    const captchaChange = (value) => {
+        setTemplate({
+            ...template,
+            ["g-recaptcha-response"]: value
+        })
+    }
+
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        data.template_params = template
+
+        if(template.name == '' || template.email == '' || template.subject == '' || template.message == '') {
+            return toast.error('Llena todos los campos!')
+        }
+
+        fetch('https://api.emailjs.com/api/v1.0/email/send', {
+            method: 'POST',
+            headers: {
+                "Content-type": "application/json"
+            },
+            body: JSON.stringify(data)
+        }).then(response => {
+            console.log(template)
+            if(!response.ok) return toast.error('Captcha Invalido')
+
             toast.success('Enviado!')
             setTimeout(() => {
-                return window.location.reload()
-            }, 1500)
-          }
-        },
-        (error) => {
-          return toast.error("Error");
-        }
-      );
-  };
+                window.location.reload()
+            }, 2000);
+        }).catch(() => toast.error('Algo Salio Mal'))
+    }
 
-  return { sendEmail }
-};
+
+    return { handleChange, captchaChange, handleSubmit }
+}

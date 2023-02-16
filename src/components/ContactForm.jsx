@@ -1,14 +1,15 @@
-import useRef from "@astrojs/preact"
+import { useRef } from "react";
+import ReCAPTCHA from "react-google-recaptcha";
 import { useContact } from "../hooks/useContact";
+
 
 export default function ContactForm() {
 
-  const form = useRef()
-  const { sendEmail } = useContact(form)
+  const { handleChange, captchaChange, handleSubmit } = useContact()  
 
   return (
     <div className="formCard rounded-sm max-w-[600px] bg-white py-10 px-5 md:border md:w-[600px]">
-      <form ref={form} onSubmit={sendEmail}>
+      <form onSubmit={handleSubmit}>
         <div className="inputField gap-2 mb-8">
           <label
             htmlFor="name"
@@ -20,6 +21,7 @@ export default function ContactForm() {
             type="text"
             name="name"
             id="name"
+            onChange={handleChange}
             className="block border-2 border-black py-2 px-4 w-full outline-none"
           />
         </div>
@@ -35,6 +37,7 @@ export default function ContactForm() {
             type="email"
             name="email"
             id="email"
+            onChange={handleChange}
             className="block border-2 border-black py-2 px-4 w-full outline-none"
           />
         </div>
@@ -51,6 +54,7 @@ export default function ContactForm() {
             name="subject"
             id="subject"
             placeholder="Tengo una oportunidad para ti!"
+            onChange={handleChange}
             className="block border-2 border-black py-2 px-4 w-full outline-none"
           />
         </div>
@@ -58,7 +62,7 @@ export default function ContactForm() {
         <div className="inputField">
           <label
             htmlFor="message"
-            class="inline-block py-1 px-2 rounded-sm bg-black text-white text-xl font-medium"
+            className="inline-block py-1 px-2 rounded-sm bg-black text-white text-xl font-medium"
           >
             Tu mensaje
           </label>
@@ -66,14 +70,20 @@ export default function ContactForm() {
             name="message"
             id="message"
             rows="4"
-            class="block p-2.5 w-full text-lg text-gray-900 bg-gray-50 rounded-sm border-2 border-black outline-none"
+            onChange={handleChange}
+            className="mb-4 block p-2.5 w-full text-lg text-gray-900 bg-gray-50 rounded-sm border-2 border-black outline-none"
             placeholder="Deja tu mensaje..."
           ></textarea>
         </div>
 
+        <ReCAPTCHA
+        onChange={captchaChange}
+        sitekey="6LfXfYYkAAAAAJ4BKtvTCD4WKaldATVjjw5af8Sr" 
+        />
+
         <button
           type="submit"
-          class="font-bold px-6 py-2.5 bg-black text-white text-2xl rounded mt-10 w-full"
+          className="font-bold px-6 py-2.5 bg-black text-white text-2xl rounded mt-10 w-full"
         >
           Enviar
         </button>
