@@ -1,4 +1,3 @@
-import { useRef } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import { useContact } from "../hooks/useContact";
 
