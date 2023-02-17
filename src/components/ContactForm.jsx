@@ -2,7 +2,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 import { useContact } from "../hooks/useContact";
 
 
-export default function ContactForm() {
+export function ContactForm() {
 
   const { handleChange, captchaChange, handleSubmit } = useContact()  
 
@@ -68,7 +68,7 @@ export default function ContactForm() {
           <textarea
             name="message"
             id="message"
-            rows="4"
+            rows={4}
             onChange={handleChange}
             className="mb-4 block p-2.5 w-full text-lg text-gray-900 bg-gray-50 rounded-sm border-2 border-black outline-none"
             placeholder="Deja tu mensaje..."
