@@ -1,6 +1,6 @@
 ---
-import { ContactCard } from "./ContactCard";
-import { ContactForm } from "./ContactForm"
+import { ContactCard } from "./ContactCard.jsx";
+import { ContactForm } from "./ContactForm.jsx"
 import Container from "./Container.astro";
 ---
 
@@ -10,8 +10,8 @@ import Container from "./Container.astro";
       Interesado en Contatratarme?
     </h2>
     <div class="md:flex md:items-center justify-center md:gap-20">
-      <ContactForm client:visible />
-      <ContactCard client:visible/>
+      <ContactForm client:only />
+      <ContactCard client:visible />
     </div>
   </Container>
 </section>
