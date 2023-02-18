@@ -1,22 +1,26 @@
 ---
 import Container from "./Container.astro";
 
-const logos = Array(6).fill(0)
+const logos = Array(6).fill(0);
 ---
 
-
 <section class="bg-black py-20">
-	<Container>
-		<h2 class="text-center text-white font-bold text-4xl">Tecnologias Favoritas</h2>
+  <Container>
+    <h2 class="text-center text-white font-bold text-4xl">
+      Tecnologias Favoritas
+    </h2>
 
-		<div class="logos flex justify-center gap-7 flex-wrap mt-10">
-			{
-				logos.map((logo, index) => (
-					<div class="w-[80px] h-[80px] grid place-items-center">
-						<img src={`/logos/${index + 1}.webp`}>
-					</div>
-				))
-			}
-		</div>
-	</Container>
-  </section>
+    <div class="logos flex justify-center gap-7 flex-wrap mt-10">
+      {
+        logos.map((logo, index) => (
+          <div class="w-[80px] h-[80px] grid place-items-center">
+            <img
+              src={`/logos/${index + 1}.webp`}
+              alt={`Skill${index + 1}Img`}
+            />
+          </div>
+        ))
+      }
+    </div>
+  </Container>
+</section>
