@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react"
+import { useRef, useState } from "react"
 import { toast } from "wc-toast"
 
 export const useContact = () => {
@@ -35,11 +35,6 @@ export const useContact = () => {
             ["g-recaptcha-response"]: value
         })
     }
-
-    useEffect(() => {
-        console.log(template)
-    }, [template])
-
 
     const handleSubmit = (e) => {
         e.preventDefault()
