@@ -2,6 +2,9 @@ import { useState } from "react"
 import { toast } from "wc-toast"
 
 export const useContact = () => {
+
+    const [loading, setLoading] = useState(false)
+
     const data = {
         service_id: import.meta.env.PUBLIC_SERVICE_ID,
         template_id: import.meta.env.PUBLIC_TEMPLATE_ID,
@@ -35,9 +38,13 @@ export const useContact = () => {
         e.preventDefault()
         data.template_params = template
 
+        if(loading) return
+
         if(template.name == '' || template.email == '' || template.subject == '' || template.message == '') {
             return toast.error('Llena todos los campos!')
         }
+
+        setLoading(true)
 
         fetch('https://api.emailjs.com/api/v1.0/email/send', {
             method: 'POST',
@@ -49,12 +56,14 @@ export const useContact = () => {
             if(!response.ok) return toast.error('Captcha Invalido')
 
             toast.success('Enviado!')
+            setLoading(false)
             setTimeout(() => {
                 window.location.reload()
-            }, 2000);
+            }, 2000)
+
         }).catch(() => toast.error('Algo Salio Mal'))
     }
 
 
-    return { handleChange, captchaChange, handleSubmit }
+    return { handleChange, captchaChange, handleSubmit, loading}
 }

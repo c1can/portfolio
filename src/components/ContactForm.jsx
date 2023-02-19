@@ -4,10 +4,10 @@ import { useContact } from "../hooks/useContact";
 
 export function ContactForm() {
 
-  const { handleChange, captchaChange, handleSubmit } = useContact()  
+  const { handleChange, captchaChange, handleSubmit, loading } = useContact()  
 
   return (
-    <div className="formCard rounded-sm max-w-[600px] bg-white py-10 px-5 md:border md:w-[600px]">
+    <div className="formCard rounded-lg max-w-[600px] bg-white py-10 px-5 md:border md:w-[600px]">
       <form onSubmit={handleSubmit}>
         <div className="inputField gap-2 mb-8">
           <label
@@ -82,7 +82,7 @@ export function ContactForm() {
 
         <button
           type="submit"
-          className="font-bold px-6 py-2.5 bg-black text-white text-2xl rounded mt-10 w-full"
+          className={`font-bold px-6 py-2.5 ${loading ? 'bg-gray-400' : 'bg-black'} text-white text-2xl rounded mt-10 w-full`}
         >
           Enviar
         </button>
