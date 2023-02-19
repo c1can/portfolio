@@ -4,11 +4,11 @@ import { useContact } from "../hooks/useContact";
 
 export function ContactForm() {
 
-  const { handleChange, captchaChange, handleSubmit, loading } = useContact()  
+  const { handleChange, captchaChange, handleSubmit, loading, recaptchaRef, formRef } = useContact()  
 
   return (
     <div className="formCard rounded-lg max-w-[600px] bg-white py-10 px-5 md:border md:w-[600px]">
-      <form onSubmit={handleSubmit}>
+      <form ref={formRef} onSubmit={handleSubmit}>
         <div className="inputField gap-2 mb-8">
           <label
             htmlFor="name"
@@ -76,6 +76,7 @@ export function ContactForm() {
         </div>
 
         <ReCAPTCHA
+        ref={recaptchaRef}
         onChange={captchaChange}
         sitekey="6LfXfYYkAAAAAJ4BKtvTCD4WKaldATVjjw5af8Sr" 
         />

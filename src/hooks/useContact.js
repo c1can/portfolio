@@ -1,7 +1,10 @@
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { toast } from "wc-toast"
 
 export const useContact = () => {
+
+    const formRef = useRef(null)
+    const recaptchaRef = useRef(null)
 
     const [loading, setLoading] = useState(false)
 
@@ -10,14 +13,14 @@ export const useContact = () => {
         template_id: import.meta.env.PUBLIC_TEMPLATE_ID,
         user_id: import.meta.env.PUBLIC_USER_KEY
     }
-
-    const [template, setTemplate] = useState({
+    const emptyTemplate = {
         name: '',
         email: '',
         subject: '',
         message: '',
         "g-recaptcha-response": ''
-    })
+    }
+    const [template, setTemplate] = useState(emptyTemplate)
 
     const handleChange = (e) => {
         setTemplate({
@@ -33,9 +36,14 @@ export const useContact = () => {
         })
     }
 
+    useEffect(() => {
+        console.log(template)
+    }, [template])
+
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        console.log(template)
         data.template_params = template
 
         if(loading) return
@@ -55,15 +63,14 @@ export const useContact = () => {
         }).then(response => {
             if(!response.ok) return toast.error('Captcha Invalido')
 
-            toast.success('Enviado!')
+            formRef.current.reset()
+            recaptchaRef.current.reset()
+            setTemplate(emptyTemplate)
             setLoading(false)
-            setTimeout(() => {
-                window.location.reload()
-            }, 2000)
-
+            toast.success('Enviado!')
         }).catch(() => toast.error('Algo Salio Mal'))
     }
 
 
-    return { handleChange, captchaChange, handleSubmit, loading}
+    return { handleChange, captchaChange, handleSubmit, loading, recaptchaRef, formRef }
 }
