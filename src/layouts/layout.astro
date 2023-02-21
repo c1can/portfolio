@@ -1,5 +1,6 @@
 ---
 import 'atropos/css'
+const { title } = Astro.props
 ---
 
 <html lang="en" class="scroll-smooth">
@@ -25,7 +26,7 @@ import 'atropos/css'
 		<meta property="twitter:description" content="Soy un joven desarrollador web con una pasión incansable por crear sitios web rápidos, escalables y siguiendo las mejores prácticas, Manejo un Stack MERN y estoy constantemente en búsqueda de nuevos conocimientos para mejorar mis habilidades.
 		Estoy disponible a nuevas oportunidades laborales en las que pueda demostrar mi talento y dedicación.">
 		<meta property="twitter:image" content="https://i.postimg.cc/QxQCnM5q/Screenshot-select-area-20230218010423.png">
-		<title>Carlos Reyes Portafolio Web Frontend Developer</title>
+		<title>{title}</title>
 	</head>
 	<body>
 		<wc-toast position="bottom-center"></wc-toast>
