@@ -47,6 +47,7 @@ export const useContact = () => {
         }
 
         setLoading(true)
+        console.log(data)
 
         fetch('https://api.emailjs.com/api/v1.0/email/send', {
             method: 'POST',
