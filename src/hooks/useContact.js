@@ -47,7 +47,6 @@ export const useContact = () => {
         }
 
         setLoading(true)
-        console.log(data)
 
         fetch('https://api.emailjs.com/api/v1.0/email/send', {
             method: 'POST',
@@ -56,7 +55,6 @@ export const useContact = () => {
             },
             body: JSON.stringify(data)
         }).then(response => {
-            console.log(response)
             if(!response.ok) return toast.error('Captcha Invalido')
 
             formRef.current.reset()
