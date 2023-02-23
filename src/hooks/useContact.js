@@ -38,7 +38,6 @@ export const useContact = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(template)
         data.template_params = template
 
         if(loading) return
@@ -56,6 +55,7 @@ export const useContact = () => {
             },
             body: JSON.stringify(data)
         }).then(response => {
+            console.log(response)
             if(!response.ok) return toast.error('Captcha Invalido')
 
             formRef.current.reset()
