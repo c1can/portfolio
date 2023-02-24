@@ -2,7 +2,7 @@ import { useRef, useState, useEffect } from "react"
 import { EXAMPLES } from "../data/examples"
 
 export function Chat() {
-
+  //refactorizar codigo
   const chatReference = useRef(null)
 
   const answers = {
@@ -55,11 +55,11 @@ export function Chat() {
   }, [chat])
 
   return (
-      <div className="containerChat fixed bottom-[70px] right-5 h-[500px] w-[250px] backdrop-blur-sm bg-black/50 rounded-2xl p-4 flex flex-col gap-4 md:w-[330px] md:right-10 z-50">
+      <div className="containerChat fixed bottom-[90px] border border-white right-10 h-[500px] w-[250px] backdrop-blur-sm bg-black/50 rounded-2xl p-4 flex flex-col gap-4 md:w-[330px] md:right-10 z-50">
           <div ref={chatReference} className="chat flex flex-col gap-4 chat flex-1 overflow-y-auto scrollbar-hide">
               {
                 chat.map(({from, text}, index) => (
-                  <div key={index} className={`${from == 'bot' ? 'bg-black' : 'bg-slate-600'} text-white max-w-[200px] p-2 rounded-xl ${from == 'user' ? 'self-end' : 'self-start'}`}>
+                  <div key={index} className={`${from == 'bot' ? 'bg-[#322f2f]' : 'bg-slate-600'} text-white max-w-[200px] p-2 rounded-xl ${from == 'user' ? 'self-end' : 'self-start'}`}>
                     <p>{text}</p>
                   </div>
                 ))
