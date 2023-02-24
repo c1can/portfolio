@@ -59,7 +59,7 @@ export function Chat() {
           <div ref={chatReference} className="chat flex flex-col gap-4 chat flex-1 overflow-y-auto scrollbar-hide">
               {
                 chat.map(({from, text}, index) => (
-                  <div key={index} className={`${from == 'bot' ? 'bg-gradient-to-r from-[#62dab4] to-[#10bed4]' : 'bg-slate-600'} text-white max-w-[200px] p-2 rounded-xl ${from == 'user' ? 'self-end' : 'self-start'}`}>
+                  <div key={index} className={`${from == 'bot' ? 'bg-black' : 'bg-slate-600'} text-white max-w-[200px] p-2 rounded-xl ${from == 'user' ? 'self-end' : 'self-start'}`}>
                     <p>{text}</p>
                   </div>
                 ))
