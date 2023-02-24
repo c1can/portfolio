@@ -55,7 +55,11 @@ export const useContact = () => {
             },
             body: JSON.stringify(data)
         }).then(response => {
-            if(!response.ok) return toast.error('Captcha Invalido')
+            if(!response.ok) {
+                toast.error('Captcha Invalido!')
+                setLoading(false)
+                return
+            } 
 
             formRef.current.reset()
             recaptchaRef.current.reset()
