@@ -4,6 +4,7 @@ import { answers } from "../data/answers";
 
 export function useChat(chatReference) {
   const [message, setMessage] = useState("")
+  const [loading, setLoading] = useState(false)
   const [chat, setChat] = useState([
     {
       from: "bot",
@@ -12,10 +13,12 @@ export function useChat(chatReference) {
   ])
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-
+    e.preventDefault()
+    
+    if(loading) return
     if (message == "") return;
 
+    setLoading(true)
     setChat((prev) =>
       prev.concat({
         from: "user",
@@ -23,7 +26,7 @@ export function useChat(chatReference) {
       })
     )
 
-    setMessage("") 
+    setMessage("")
 
     fetch("https://api.cohere.ai/classify", {
       method: "POST",
@@ -41,10 +44,10 @@ export function useChat(chatReference) {
       .then((result) => {
         const { classifications } = result;
         const botResponse = classifications[0].prediction;
-        setChat((prev) =>
-          prev.concat({ from: "bot", text: answers[botResponse] })
-        )
+        setChat(prev => prev.concat({ from: "bot", text: answers[botResponse] }))
+        setLoading(false)
       })
+
   }
 
 useEffect(() => {
