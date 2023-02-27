@@ -7,7 +7,7 @@ export function ContactForm() {
   const { handleChange, captchaChange, handleSubmit, loading, recaptchaRef, formRef } = useContact()  
 
   return (
-    <div className="formCard rounded-lg max-w-[600px] bg-white py-10 px-5 md:border md:w-[600px]">
+    <div className="formCard rounded-lg max-w-[600px] bg-white py-10 px-5 md:w-[600px]">
       <form ref={formRef} onSubmit={handleSubmit}>
         <div className="inputField gap-2 mb-8">
           <label
@@ -21,7 +21,7 @@ export function ContactForm() {
             name="name"
             id="name"
             onChange={handleChange}
-            className="block border-2 border-black py-2 px-4 w-full outline-none"
+            className="block py-2 px-4 w-full outline-none bg-[#ced4da]"
           />
         </div>
 
@@ -37,7 +37,7 @@ export function ContactForm() {
             name="email"
             id="email"
             onChange={handleChange}
-            className="block border-2 border-black py-2 px-4 w-full outline-none"
+            className="block py-2 px-4 w-full outline-none bg-[#ced4da]"
           />
         </div>
 
@@ -54,7 +54,7 @@ export function ContactForm() {
             id="subject"
             placeholder="Tengo una oportunidad para ti!"
             onChange={handleChange}
-            className="block border-2 border-black py-2 px-4 w-full outline-none"
+            className="block py-2 px-4 w-full outline-none bg-[#ced4da] placeholder-gray-500"
           />
         </div>
 
@@ -70,7 +70,7 @@ export function ContactForm() {
             id="message"
             rows={4}
             onChange={handleChange}
-            className="mb-4 block p-2.5 w-full text-lg text-gray-900 bg-gray-50 rounded-sm border-2 border-black outline-none"
+            className="mb-4 block p-2.5 w-full text-lg text-gray-900 bg-[#ced4da] rounded-sm outline-none placeholder-gray-500"
             placeholder="Deja tu mensaje..."
           ></textarea>
         </div>
