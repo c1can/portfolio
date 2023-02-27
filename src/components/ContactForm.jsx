@@ -12,7 +12,7 @@ export function ContactForm() {
         <div className="inputField gap-2 mb-8">
           <label
             htmlFor="name"
-            className="inline-block py-1 px-2 rounded-sm bg-black text-white text-xl font-medium"
+            className="inline-block py-1 px-2 rounded-t-lg bg-black text-white text-xl font-medium"
           >
             Nombre
           </label>
@@ -28,7 +28,7 @@ export function ContactForm() {
         <div className="inputField mb-8">
           <label
             htmlFor="email"
-            className="inline-block py-1 px-2 rounded-sm bg-black text-white text-xl font-medium"
+            className="inline-block py-1 px-2 rounded-t-lg bg-black text-white text-xl font-medium"
           >
             Correo Electrónico
           </label>
@@ -44,7 +44,7 @@ export function ContactForm() {
         <div className="inputField mb-8">
           <label
             htmlFor="subject"
-            className="inline-block py-1 px-2 rounded-sm bg-black text-white text-xl font-medium"
+            className="inline-block py-1 px-2 rounded-t-lg bg-black text-white text-xl font-medium"
           >
             Título
           </label>
@@ -61,7 +61,7 @@ export function ContactForm() {
         <div className="inputField">
           <label
             htmlFor="message"
-            className="inline-block py-1 px-2 rounded-sm bg-black text-white text-xl font-medium"
+            className="inline-block py-1 px-2 rounded-t-lg bg-black text-white text-xl font-medium"
           >
             Tu mensaje
           </label>
