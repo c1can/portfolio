@@ -21,7 +21,7 @@ export function ContactForm() {
             name="name"
             id="name"
             onChange={handleChange}
-            className="block py-2 px-4 w-full outline-none bg-[#ced4da]"
+            className="block py-2 px-4 w-full outline-none bg-[#ced4da] rounded-r-lg"
           />
         </div>
 
@@ -37,7 +37,7 @@ export function ContactForm() {
             name="email"
             id="email"
             onChange={handleChange}
-            className="block py-2 px-4 w-full outline-none bg-[#ced4da]"
+            className="block rounded-r-lg py-2 px-4 w-full outline-none bg-[#ced4da]"
           />
         </div>
 
@@ -54,7 +54,7 @@ export function ContactForm() {
             id="subject"
             placeholder="Tengo una oportunidad para ti!"
             onChange={handleChange}
-            className="block py-2 px-4 w-full outline-none bg-[#ced4da] placeholder-gray-500"
+            className="block py-2 rounded-r-lg px-4 w-full outline-none bg-[#ced4da] placeholder-gray-500"
           />
         </div>
 
@@ -70,7 +70,7 @@ export function ContactForm() {
             id="message"
             rows={4}
             onChange={handleChange}
-            className="mb-4 block p-2.5 w-full text-lg text-gray-900 bg-[#ced4da] rounded-sm outline-none placeholder-gray-500"
+            className="mb-4 block p-2.5 w-full text-lg rounded-r-lg text-gray-900 bg-[#ced4da] rounded-sm outline-none placeholder-gray-500"
             placeholder="Deja tu mensaje..."
           ></textarea>
         </div>
